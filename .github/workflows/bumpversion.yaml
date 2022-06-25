@@ -11,6 +11,7 @@ jobs:
         uses: ./
         id: bumpversion
         with:
+          context: .
           gitEmail: sarusethi@rocketmail.com
           gitName: Gurleen Sethi
           incrementType: minor
