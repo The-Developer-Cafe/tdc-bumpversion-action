@@ -9,6 +9,8 @@ jobs:
         with:
           fetch-depth: 0
       - run: git fetch --tags
+      - run: ls -la
+      - run: pwd
       - name: bumpversion
         uses: ./
         id: bumpversion
