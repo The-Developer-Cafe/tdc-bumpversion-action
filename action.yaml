@@ -1,0 +1,16 @@
+name: "tdc-bumpversion-action"
+description: "Semantic version increments of git tags."
+inputs:
+  gitEmail:
+    required: true
+  gitName:
+    required: true
+  incrementType:
+    required: true
+runs:
+  using: docker
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.gitEmail }}
+    - ${{ inputs.gitName }}
+    - ${{ inputs.incrementType }}
