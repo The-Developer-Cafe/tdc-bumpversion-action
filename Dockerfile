@@ -14,4 +14,4 @@ RUN apk add git --no-cache
 
 COPY --from=builder /app/bumpversion /bin/
 
-ENTRYPOINT [ "bumpversion" ]
+ENTRYPOINT [ "pwd && ls && bumpversion" ]
