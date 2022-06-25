@@ -12,4 +12,4 @@ RUN apk add git --no-cache
 
 COPY --from=builder /app/bumpversion /bin/
 
-ENTRYPOINT [ "bumpversion" ]
+ENTRYPOINT [ "sh", "-c", "git status && bumpversion" ]
