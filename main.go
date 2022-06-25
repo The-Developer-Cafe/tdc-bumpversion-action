@@ -80,7 +80,7 @@ func IncrementGitTag(cfg IncrementConfig) error {
 	}
 	log.Printf("running in folder %s", pwd)
 
-	ls, err := RunCommand("ls -la")
+	ls, err := RunCommand("ls", "-la")
 	if err != nil {
 		return errors.New(fmt.Sprint("failed to get current directory contents", err))
 	}
