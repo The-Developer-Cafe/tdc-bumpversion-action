@@ -10,7 +10,7 @@ FROM alpine:3.16
 
 RUN apk add git --no-cache
 
-WORKDIR /app
+WORKDIR /github/workspace
 
 COPY --from=builder /app/bumpversion /bin/
 
