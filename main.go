@@ -91,6 +91,11 @@ func IncrementGitTag(cfg IncrementConfig) error {
 		return errors.New(fmt.Sprint("'which git' failed, please make sure git is installed!", err))
 	}
 
+	_, err = RunCommand("git", "config", "--global", "--add", "safe.directory", "/github/workspace")
+	if err != nil {
+		return fmt.Errorf("failed to make git folder safe: %v", err)
+	}
+
 	gitStatusOutput, err := RunCommand("git", "status")
 	if err != nil {
 		return fmt.Errorf("%s\n'git status' failed, please make sure command is being run in a git directory: %v", gitStatusOutput, err)
