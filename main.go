@@ -74,19 +74,7 @@ func main() {
 }
 
 func IncrementGitTag(cfg IncrementConfig) error {
-	pwd, err := RunCommand("pwd")
-	if err != nil {
-		return errors.New(fmt.Sprint("failed to get current working directory ", err))
-	}
-	log.Printf("running in folder %s", pwd)
-
-	ls, err := RunCommand("ls", "-la")
-	if err != nil {
-		return errors.New(fmt.Sprint("failed to get current directory contents", err))
-	}
-	log.Printf("contents of directory: \n%s", ls)
-
-	_, err = RunCommand("which", "git")
+	_, err := RunCommand("which", "git")
 	if err != nil {
 		return errors.New(fmt.Sprint("'which git' failed, please make sure git is installed!", err))
 	}
