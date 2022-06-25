@@ -81,9 +81,13 @@ func IncrementGitTag(cfg IncrementConfig) error {
 	}
 
 	_, err = RunCommand("git", "status")
-
 	if err != nil {
 		return errors.New(fmt.Sprint("'git status' failed, please make sure command is being run in a git directory", err))
+	}
+
+	_, err = RunCommand("git", "fetch", "--tags")
+	if err != nil {
+		return fmt.Errorf("failed to fetch git tags: %v", err)
 	}
 
 	// Configure git user name and email.
