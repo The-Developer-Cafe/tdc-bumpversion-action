@@ -11,6 +11,6 @@ runs:
   using: docker
   image: "Dockerfile"
   args:
-    - -gitEmail='${{ inputs.gitEmail }}'
-    - -gitName='${{ inputs.gitName }}'
-    - -incrementType='${{ inputs.incrementType }}'
+    - -gitEmail=${{ inputs.gitEmail }}
+    - -gitName=${{ inputs.gitName }}
+    - -incrementType=${{ inputs.incrementType }}
