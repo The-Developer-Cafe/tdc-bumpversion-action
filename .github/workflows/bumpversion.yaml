@@ -1,0 +1,12 @@
+jobs:
+  bumpversion:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git fetch --tags
+      - name: bumpversion
+        uses: ./
+        id: bumpversion
+        with:
+          gitEmail: sarusethi@rocketmail.com
+          gitName: Gurleen Sethi
+          incrementType: minor
