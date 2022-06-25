@@ -131,7 +131,9 @@ func IncrementGitTag(cfg IncrementConfig) error {
 		return fmt.Errorf("failed to push tag to remote repo: %v", err)
 	}
 
-	return fmt.Errorf("tagged successfully with version %s", newVersion)
+	log.Printf("tagged successfully with version %s\n", newVersion)
+
+	return nil
 }
 
 func IncrementVersion(existingVersion, incrementType string) (string, error) {
