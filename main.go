@@ -87,14 +87,13 @@ func IncrementGitTag(cfg IncrementConfig) error {
 	log.Printf("contents of directory: \n%s", ls)
 
 	_, err = RunCommand("which", "git")
-
 	if err != nil {
 		return errors.New(fmt.Sprint("'which git' failed, please make sure git is installed!", err))
 	}
 
-	_, err = RunCommand("git", "status")
+	gitStatusOutput, err := RunCommand("git", "status")
 	if err != nil {
-		return errors.New(fmt.Sprint("'git status' failed, please make sure command is being run in a git directory", err))
+		return errors.New(fmt.Sprintf("'git status' failed, please make sure command is being run in a git directory: %v\n%s", err, gitStatusOutput))
 	}
 
 	_, err = RunCommand("git", "fetch", "--tags")
